@@ -19,7 +19,7 @@
     async function generate() {
       let niche = document.getElementById("input").value;
 
-      const res = await fetch("https://YOUR_BACKEND_URL/generate", {
+      const res = await fetch("https://chanly-studio-production.up.railway.app/generate", {
         method: "POST",
         headers: {"Content-Type":"application/json"},
         body: JSON.stringify({ niche })

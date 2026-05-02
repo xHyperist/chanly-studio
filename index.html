@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chanly Studio</title>
+</head>
+<body style="font-family: Arial; text-align:center; padding-top:50px;">
+
+  <h1>Chanly Studio</h1>
+
+  <p>AI Content Generator</p>
+
+  <input id="input" placeholder="Enter niche (e.g. fitness)" />
+
+  <button onclick="generate()">Generate</button>
+
+  <h3 id="result"></h3>
+
+  <script>
+    async function generate() {
+      let niche = document.getElementById("input").value;
+
+      const res = await fetch("https://YOUR_BACKEND_URL/generate", {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ niche })
+      });
+
+      const data = await res.json();
+
+      document.getElementById("result").innerText = data.result;
+    }
+  </script>
+
+</body>
+</html>

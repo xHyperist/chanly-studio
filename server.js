@@ -42,3 +42,22 @@ Return:
 app.listen(3000, () => {
   console.log("Server running");
 });
+
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json()); // ❗ ÇOK ÖNEMLİ
+
+app.post("/generate", async (req, res) => {
+  res.json({ result: "test ok" });
+});
+
+// ❗ PORT BURASI KRİTİK
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log("Server running on", PORT);
+});
